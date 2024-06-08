@@ -1,34 +1,34 @@
 <?php
 
-namespace App\Http\Controllers\Admins;
+namespace App\Http\Controllers\Investors;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\LoginRequest;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
+use App\Http\Requests\Auth\InvestorLoginRequest;
 
-class AuthenticatedSessionController extends Controller
+class InvestorsAuthenticatedSessionController extends Controller
 {
     /**
      * Display the login view.
      */
     public function create(): View
     {
-        return view('dashboard.login');
+        return view('investors.login');
     }
 
     /**
      * Handle an incoming authentication request.
      */
-    public function store(LoginRequest $request): RedirectResponse
+    public function store(InvestorLoginRequest $request): RedirectResponse
     {
         $request->authenticate();
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('dashboard.admins', absolute: false));
+        return redirect()->intended(route('dashboard.investors', absolute: false));
     }
 
     /**
@@ -36,7 +36,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
-        Auth::guard('web')->logout();
+        Auth::guard('investor')->logout();
 
         $request->session()->invalidate();
 

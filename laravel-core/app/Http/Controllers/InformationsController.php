@@ -13,22 +13,34 @@ class InformationsController extends Controller
         return view('dashboard.informations')->with('investors', $investors);
     }
     public function investor_index(Investor $investor){
-        $informations = Information::where('investor', $investor->id)->get();
-        return view('dashboard.informations-investor')->with('informations', $informations);
+        $informations = Information::where('investor_id', $investor->id)->get();
+        return view('dashboard.informations-investor')->with('informations', $informations)->with("investor", $investor);
     }
     public function create(){
+        $investors = Investor::all();
+        return view('dashboard.create-informations')->with('investors', $investors);
 
     }
     public function store(Request $request){
+        Information::create([
+            'text1' => $request->input('informationText1'),
+            'text2' => $request->input('informationText2'),
+            'icon' => $request->input('informationIcon'),
+            'change' => $request->input('informationChange'),
+            'color' => $request->input('informationColor'),
+            'investor_id' => $request->input('investor_id')
+        ]);
+        return redirect()->route('informations.investor', $request->input('investor_id'));
+    }
+    public function edit(Information $information){
 
     }
-    public function edit(Infromation $information){
-
-    }
-    public function update(Request $request, Infromation $information){
+    public function update(Request $request, Information $information){
         
     }
-    public function destroy(Infromation $information){
-
+    public function destroy(Information $information){
+        $investor_id = $information->investor_id;
+        $information->delete();
+        return redirect()->route('informations.investor', $investor_id);
     }
 }

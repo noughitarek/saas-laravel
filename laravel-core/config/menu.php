@@ -2,10 +2,10 @@
 
 return [
     array(
-        'title' => "Dashbord",
+        'title' => "Dashboard",
         'icon' => "home",
-        'section' => "dashbord",
-        'route' => "dashbord",
+        'section' => "dashboard",
+        'route' => "dashboard",
     ),
     array(
         'title' => "Infromations",

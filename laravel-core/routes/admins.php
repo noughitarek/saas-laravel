@@ -12,15 +12,15 @@ use App\Http\Controllers\Admins\AuthenticatedSessionController;
 
 Route::prefix('admins')->group(function(){
     
-    Route::middleware('guest')->group(function () {
+    Route::middleware('guest:web')->group(function () {
         Route::get('login', [AuthenticatedSessionController::class, 'create'])->name('login');
         Route::post('login', [AuthenticatedSessionController::class, 'store']);
     });
 
-    Route::middleware('auth')->controller(MainController::class)->prefix('dashboard')->group(function () {
-        Route::get('/', 'dashboard')->name('dashboard');
+    Route::middleware('auth:web')->controller(MainController::class)->prefix('dashboard')->group(function () {
+        Route::get('/', 'dashboard')->name('dashboard.admins');
     });
-    Route::middleware('auth')->controller(UsersController::class)->prefix('users')->group(function () {
+    Route::middleware('auth:web')->controller(UsersController::class)->prefix('users')->group(function () {
         Route::get('/', 'index')->name('admins');
         Route::get('/create', 'create')->name('admins.create');
         Route::post('/create', 'store');
@@ -28,7 +28,7 @@ Route::prefix('admins')->group(function(){
         Route::put('/{admin}/edit', 'update');
         Route::delete('/{admin}/delete', 'destroy')->name('admins.delete');
     });
-    Route::middleware('auth')->controller(InvestorsController::class)->prefix('investors')->group(function () {
+    Route::middleware('auth:web')->controller(InvestorsController::class)->prefix('investors')->group(function () {
         Route::get('/', 'index')->name('investors');
         Route::get('/create', 'create')->name('investors.create');
         Route::post('/create', 'store');
@@ -36,7 +36,7 @@ Route::prefix('admins')->group(function(){
         Route::put('/{investor}/edit', 'update');
         Route::delete('/{investor}/delete', 'destroy')->name('investors.delete');
     });
-    Route::middleware('auth')->controller(InformationsController::class)->prefix('informations')->group(function () {
+    Route::middleware('auth:web')->controller(InformationsController::class)->prefix('informations')->group(function () {
         Route::get('/get', 'index')->name('informations');
         Route::get('{investor}/get', 'investor_index')->name('informations.investor');
         Route::get('/create', 'create')->name('informations.create');
@@ -46,7 +46,7 @@ Route::prefix('admins')->group(function(){
         Route::delete('/{information}/delete', 'destroy')->name('informations.delete');
     });
 
-    Route::middleware('auth')->group(function () {
+    Route::middleware('auth:web')->group(function () {
         Route::get('confirm-password', [ConfirmablePasswordController::class, 'show'])->name('password.confirm');
         Route::post('confirm-password', [ConfirmablePasswordController::class, 'store']);
         Route::put('password', [PasswordController::class, 'update'])->name('password.update');
