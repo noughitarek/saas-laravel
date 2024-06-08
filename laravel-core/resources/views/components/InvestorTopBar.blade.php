@@ -188,7 +188,7 @@
       <div class="dropdown-menu w-56">
         <ul class="dropdown-content bg-primary/80 before:block before:absolute before:bg-black before:inset-0 before:rounded-md before:z-[-1] text-white">
           <li class="p-2">
-            <div class="font-medium">Christian Bale</div>
+            <div class="font-medium">{{Auth::guard('investor')->user()->name}}</div>
             <div class="text-xs text-white/60 mt-0.5 dark:text-slate-500">Backend Engineer</div>
           </li>
           <li>
