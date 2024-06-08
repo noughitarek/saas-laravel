@@ -5,7 +5,7 @@ return [
         'title' => "Dashboard",
         'icon' => "home",
         'section' => "dashboard",
-        'route' => "dashboard",
+        'route' => "dashboard.admins",
     ),
     array(
         'title' => "Infromations",

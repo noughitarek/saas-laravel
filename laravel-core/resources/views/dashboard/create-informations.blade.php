@@ -10,7 +10,9 @@
         <div>
           <label class="form-label">Icon</label>
           <select name="informationIcon" class="form-control w-full">
-            <option>activity</option>
+            @foreach(config('settings.icons') as $icon)
+            <option>{{$icon}}</option>
+            @endforeach
           </select>
         </div>
       </div>

@@ -4,7 +4,7 @@
     <li>
       <a href="{{ isset($menu['route']) && Route::has($menu['route']) ? route($menu['route']) : 'javascript:;' }}" class="top-menu {{explode('.', Route::currentRouteName())[0]==$menu['section']?'top-menu--active':''}}">
         <div class="top-menu__icon">
-          <i data-lucide="{{$menu["icon"]}}"></i>
+          <i data-lucide="{{$menu['icon']}}"></i>
         </div>
         <div class="top-menu__title"> {{$menu["title"]}}
           @if(isset($menu['sub_menu']))
