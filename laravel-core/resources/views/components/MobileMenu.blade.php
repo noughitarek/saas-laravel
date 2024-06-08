@@ -1,7 +1,7 @@
 <div class="mobile-menu md:hidden">
   <div class="mobile-menu-bar">
     <a href="" class="flex mr-auto">
-      <img alt="Midone - HTML Admin Template" class="w-6" src="dist/images/logo.svg">
+      <img alt="Midone - HTML Admin Template" class="w-6" src="{{asset('assets/dashboard/images/logo.svg')}}">
     </a>
     <a href="javascript:;" class="mobile-menu-toggler">
       <i data-lucide="bar-chart-2" class="w-8 h-8 text-white transform -rotate-90"></i>
@@ -22,7 +22,7 @@
         </a>
         <ul class="menu__sub-open">
           <li>
-            <a href="side-menu-light-dashboard-overview-1.html" class="menu">
+            <a href="side-menu-light-dashboard-overview-1.html" class="menu menu--active">
               <div class="menu__icon">
                 <i data-lucide="activity"></i>
               </div>
@@ -46,7 +46,7 @@
             </a>
           </li>
           <li>
-            <a href="index.html" class="menu menu--active">
+            <a href="index.html" class="menu">
               <div class="menu__icon">
                 <i data-lucide="activity"></i>
               </div>
@@ -65,7 +65,7 @@
         </a>
         <ul class="">
           <li>
-            <a href="side-menu-light-dashboard-overview-1.html" class="menu">
+            <a href="side-menu-light-dashboard-overview-1.html" class="menu menu--active">
               <div class="menu__icon">
                 <i data-lucide="activity"></i>
               </div>
@@ -73,7 +73,7 @@
             </a>
           </li>
           <li>
-            <a href="simple-menu-light-dashboard-overview-1.html" class="menu">
+            <a href="simple-menu-light-dashboard-overview-1.html" class="menu menu--active">
               <div class="menu__icon">
                 <i data-lucide="activity"></i>
               </div>
@@ -81,7 +81,7 @@
             </a>
           </li>
           <li>
-            <a href="top-menu-light-dashboard-overview-1.html" class="menu">
+            <a href="top-menu-light-dashboard-overview-1.html" class="menu menu--active">
               <div class="menu__icon">
                 <i data-lucide="activity"></i>
               </div>

@@ -5,6 +5,7 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\InvestorsController;
+use App\Http\Controllers\InformationsController;
 use App\Http\Controllers\Admins\PasswordController;
 use App\Http\Controllers\Admins\ConfirmablePasswordController;
 use App\Http\Controllers\Admins\AuthenticatedSessionController;
@@ -34,6 +35,15 @@ Route::prefix('admins')->group(function(){
         Route::get('/{investor}/edit', 'edit')->name('investors.edit');
         Route::put('/{investor}/edit', 'update');
         Route::delete('/{investor}/delete', 'destroy')->name('investors.delete');
+    });
+    Route::middleware('auth')->controller(InformationsController::class)->prefix('informations')->group(function () {
+        Route::get('/get', 'index')->name('informations');
+        Route::get('{investor}/get', 'investor_index')->name('informations.investor');
+        Route::get('/create', 'create')->name('informations.create');
+        Route::post('/create', 'store');
+        Route::get('/{information}/edit', 'edit')->name('informations.edit');
+        Route::put('/{information}/edit', 'update');
+        Route::delete('/{information}/delete', 'destroy')->name('informations.delete');
     });
 
     Route::middleware('auth')->group(function () {

@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{asset('assets/dashboard/css/app.css')}}" />
     @yield('sub_head')
 @endsection
+@section('body_class', 'py-5 md:py-0')
 @section('body')
     @include('components.MobileMenu')
     @include('components.TopBar')
