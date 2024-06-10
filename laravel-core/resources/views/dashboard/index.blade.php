@@ -195,7 +195,7 @@
           </div>
         </div>
         <!-- END: Sales Report -->
-        <!-- BEGIN: Official Store -->
+        <!-- BEGIN: Official Store
         <div class="col-span-12 xl:col-span-8 mt-6">
           <div class="intro-y block sm:flex items-center h-10">
             <h2 class="text-lg font-medium truncate mr-5"> Official Store </h2>
