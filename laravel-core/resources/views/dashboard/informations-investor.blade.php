@@ -46,7 +46,7 @@
           </div>-->
           <div class="grid grid-cols-12 gap-6 mt-5">
             @foreach($informations as $information)
-            <div class="col-span-12 sm:col-span-{{$information->width}} xl:col-span-{{$information->width_lg}} intro-y">
+            <div class="col-span-12 col-span-{{$information->width}} lg:col-span-{{$information->width_lg}} intro-y">
               <div class="report-box zoom-in">
                 <div class="box p-5">
                   <form method="post" action="{{route('informations.delete', $information->id)}}" class="mb-2">
