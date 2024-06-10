@@ -24,7 +24,7 @@ class UsersController extends Controller
             'email' => $request->input('userEmail'),
             'password' => Hash::make($request->input('userPassword')),
         ]);
-        return redirect()->route('admins');
+        return redirect()->route('admins')->with('success', 'qsdqs');
     }
     public function edit(User $admin)
     {

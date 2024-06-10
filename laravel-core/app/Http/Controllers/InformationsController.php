@@ -28,7 +28,9 @@ class InformationsController extends Controller
             'icon' => $request->input('informationIcon'),
             'change' => $request->input('informationChange'),
             'color' => $request->input('informationColor'),
-            'investor_id' => $request->input('investor_id')
+            'investor_id' => $request->input('investor_id'),
+            'width' => $request->input('informationWidth'),
+            'width_lg' => $request->input('informationWidth_lg'),
         ]);
         return redirect()->route('informations.investor', $request->input('investor_id'));
     }

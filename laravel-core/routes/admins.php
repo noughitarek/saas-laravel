@@ -19,6 +19,10 @@ Route::prefix('admins')->group(function(){
 
     Route::middleware('auth:web')->controller(MainController::class)->prefix('dashboard')->group(function () {
         Route::get('/', 'dashboard')->name('dashboard.admins');
+        Route::get('/settings', 'settings')->name('settings');
+        Route::patch('/settings', 'update_settings');
+
+        Route::get('help', 'help')->name('help.admins');
     });
     Route::middleware('auth:web')->controller(UsersController::class)->prefix('users')->group(function () {
         Route::get('/', 'index')->name('admins');
@@ -47,12 +51,20 @@ Route::prefix('admins')->group(function(){
     });
 
     Route::middleware('auth:web')->group(function () {
-        Route::get('confirm-password', [ConfirmablePasswordController::class, 'show'])->name('password.confirm');
+        Route::get('confirm-password', [ConfirmablePasswordController::class, 'show'])->name('password. ');
         Route::post('confirm-password', [ConfirmablePasswordController::class, 'store']);
-        Route::put('password', [PasswordController::class, 'update'])->name('password.update');
+
         Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+        
+        Route::get('/password', [PasswordController::class, 'edit'])->name('password.edit');
+        Route::put('/password', [PasswordController::class, 'update'])->name('password.update');
+
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+
+        Route::get('/style', [MainController::class, 'style_edit'])->name('style.edit');
+        Route::patch('/style', [MainController::class, 'style_update'])->name('style.update');
+
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     });
 });

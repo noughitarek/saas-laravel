@@ -5,8 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Information extends Model
+class FAQ extends Model
 {
     use HasFactory;
-    protected $fillable = ['text1', 'text2', 'icon', 'change', 'color', 'investor_id', 'width', 'width_lg'];
 }

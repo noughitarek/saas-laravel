@@ -9,9 +9,9 @@
       <div class="intro-y box p-5">
         <div>
           <label class="form-label">Icon</label>
-          <select name="informationIcon" class="form-control w-full">
+          <select name="informationIcon" id="informationIcon" class="form-control w-full">
             @foreach(config('settings.icons') as $icon)
-            <option>{{$icon}}</option>
+            <option value="{{$icon}}">{{$icon}}</option>
             @endforeach
           </select>
         </div>
@@ -52,6 +52,19 @@
         <div>
           <label class="form-label">Text2</label>
           <input type="text" name="informationText2" class="form-control w-full" placeholder="orders">
+        </div>
+      </div>
+
+      <div class="intro-y box p-5 mb-2">
+        <div>
+          <label class="form-label">Width</label>
+          <input type="number" min="1" max="12" value="12" name="informationWidth" class="form-control w-full">
+        </div>
+      </div>
+      <div class="intro-y box p-5 mb-2">
+        <div>
+          <label class="form-label">Width for large scale screens</label>
+          <input type="number" min="1" max="12" value="6" name="informationWidth_lg" class="form-control w-full">
         </div>
       </div>
       <button class="btn btn-success text-white">Save</button>

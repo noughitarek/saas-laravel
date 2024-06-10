@@ -14,7 +14,20 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('role')->nullable();
             $table->string('email')->unique();
+            $table->string('phone')->nullable();
+            $table->string('picture')->nullable();
+            $table->string('address')->nullable();
+            $table->text('description')->nullable();
+
+            $table->boolean('dark')->default(1);
+            $table->string('primary_color')->default('22 78 99');
+            $table->string('secondary_color')->default('226 232 240');
+            $table->string('warning_color')->default('245 158 11');
+            $table->string('danger_color')->default('185 28 28');
+            $table->string('success_color')->default('13 148 136');
+
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

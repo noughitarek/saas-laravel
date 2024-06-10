@@ -219,7 +219,7 @@
             <div class="intro-y">
               <div class="box px-4 py-4 mb-3 flex items-center zoom-in">
                 <div class="w-10 h-10 flex-none image-fit rounded-md overflow-hidden">
-                  <img alt="Midone - HTML Admin Template" src="dist/images/profile-3.jpg">
+                  <img alt="{{config('settings.title')}}" src="dist/images/profile-3.jpg">
                 </div>
                 <div class="ml-4 mr-auto">
                   <div class="font-medium">Tom Cruise</div>
@@ -231,7 +231,7 @@
             <div class="intro-y">
               <div class="box px-4 py-4 mb-3 flex items-center zoom-in">
                 <div class="w-10 h-10 flex-none image-fit rounded-md overflow-hidden">
-                  <img alt="Midone - HTML Admin Template" src="dist/images/profile-2.jpg">
+                  <img alt="{{config('settings.title')}}" src="dist/images/profile-2.jpg">
                 </div>
                 <div class="ml-4 mr-auto">
                   <div class="font-medium">Robert De Niro</div>
@@ -243,7 +243,7 @@
             <div class="intro-y">
               <div class="box px-4 py-4 mb-3 flex items-center zoom-in">
                 <div class="w-10 h-10 flex-none image-fit rounded-md overflow-hidden">
-                  <img alt="Midone - HTML Admin Template" src="dist/images/profile-10.jpg">
+                  <img alt="{{config('settings.title')}}" src="dist/images/profile-10.jpg">
                 </div>
                 <div class="ml-4 mr-auto">
                   <div class="font-medium">Nicolas Cage</div>
@@ -255,7 +255,7 @@
             <div class="intro-y">
               <div class="box px-4 py-4 mb-3 flex items-center zoom-in">
                 <div class="w-10 h-10 flex-none image-fit rounded-md overflow-hidden">
-                  <img alt="Midone - HTML Admin Template" src="dist/images/profile-10.jpg">
+                  <img alt="{{config('settings.title')}}" src="dist/images/profile-10.jpg">
                 </div>
                 <div class="ml-4 mr-auto">
                   <div class="font-medium">Johnny Depp</div>
@@ -357,13 +357,13 @@
                   <td class="w-40">
                     <div class="flex">
                       <div class="w-10 h-10 image-fit zoom-in">
-                        <img alt="Midone - HTML Admin Template" class="tooltip rounded-full" src="dist/images/preview-5.jpg" title="Uploaded at 30 May 2022">
+                        <img alt="{{config('settings.title')}}" class="tooltip rounded-full" src="dist/images/preview-5.jpg" title="Uploaded at 30 May 2022">
                       </div>
                       <div class="w-10 h-10 image-fit zoom-in -ml-5">
-                        <img alt="Midone - HTML Admin Template" class="tooltip rounded-full" src="dist/images/preview-3.jpg" title="Uploaded at 8 June 2022">
+                        <img alt="{{config('settings.title')}}" class="tooltip rounded-full" src="dist/images/preview-3.jpg" title="Uploaded at 8 June 2022">
                       </div>
                       <div class="w-10 h-10 image-fit zoom-in -ml-5">
-                        <img alt="Midone - HTML Admin Template" class="tooltip rounded-full" src="dist/images/preview-13.jpg" title="Uploaded at 9 March 2021">
+                        <img alt="{{config('settings.title')}}" class="tooltip rounded-full" src="dist/images/preview-13.jpg" title="Uploaded at 9 March 2021">
                       </div>
                     </div>
                   </td>
@@ -390,13 +390,13 @@
                   <td class="w-40">
                     <div class="flex">
                       <div class="w-10 h-10 image-fit zoom-in">
-                        <img alt="Midone - HTML Admin Template" class="tooltip rounded-full" src="dist/images/preview-10.jpg" title="Uploaded at 9 July 2022">
+                        <img alt="{{config('settings.title')}}" class="tooltip rounded-full" src="dist/images/preview-10.jpg" title="Uploaded at 9 July 2022">
                       </div>
                       <div class="w-10 h-10 image-fit zoom-in -ml-5">
-                        <img alt="Midone - HTML Admin Template" class="tooltip rounded-full" src="dist/images/preview-7.jpg" title="Uploaded at 18 January 2021">
+                        <img alt="{{config('settings.title')}}" class="tooltip rounded-full" src="dist/images/preview-7.jpg" title="Uploaded at 18 January 2021">
                       </div>
                       <div class="w-10 h-10 image-fit zoom-in -ml-5">
-                        <img alt="Midone - HTML Admin Template" class="tooltip rounded-full" src="dist/images/preview-9.jpg" title="Uploaded at 27 February 2022">
+                        <img alt="{{config('settings.title')}}" class="tooltip rounded-full" src="dist/images/preview-9.jpg" title="Uploaded at 27 February 2022">
                       </div>
                     </div>
                   </td>
@@ -423,13 +423,13 @@
                   <td class="w-40">
                     <div class="flex">
                       <div class="w-10 h-10 image-fit zoom-in">
-                        <img alt="Midone - HTML Admin Template" class="tooltip rounded-full" src="dist/images/preview-10.jpg" title="Uploaded at 22 June 2020">
+                        <img alt="{{config('settings.title')}}" class="tooltip rounded-full" src="dist/images/preview-10.jpg" title="Uploaded at 22 June 2020">
                       </div>
                       <div class="w-10 h-10 image-fit zoom-in -ml-5">
-                        <img alt="Midone - HTML Admin Template" class="tooltip rounded-full" src="dist/images/preview-10.jpg" title="Uploaded at 7 September 2021">
+                        <img alt="{{config('settings.title')}}" class="tooltip rounded-full" src="dist/images/preview-10.jpg" title="Uploaded at 7 September 2021">
                       </div>
                       <div class="w-10 h-10 image-fit zoom-in -ml-5">
-                        <img alt="Midone - HTML Admin Template" class="tooltip rounded-full" src="dist/images/preview-3.jpg" title="Uploaded at 31 January 2021">
+                        <img alt="{{config('settings.title')}}" class="tooltip rounded-full" src="dist/images/preview-3.jpg" title="Uploaded at 31 January 2021">
                       </div>
                     </div>
                   </td>
@@ -456,13 +456,13 @@
                   <td class="w-40">
                     <div class="flex">
                       <div class="w-10 h-10 image-fit zoom-in">
-                        <img alt="Midone - HTML Admin Template" class="tooltip rounded-full" src="dist/images/preview-14.jpg" title="Uploaded at 24 November 2022">
+                        <img alt="{{config('settings.title')}}" class="tooltip rounded-full" src="dist/images/preview-14.jpg" title="Uploaded at 24 November 2022">
                       </div>
                       <div class="w-10 h-10 image-fit zoom-in -ml-5">
-                        <img alt="Midone - HTML Admin Template" class="tooltip rounded-full" src="dist/images/preview-4.jpg" title="Uploaded at 13 November 2022">
+                        <img alt="{{config('settings.title')}}" class="tooltip rounded-full" src="dist/images/preview-4.jpg" title="Uploaded at 13 November 2022">
                       </div>
                       <div class="w-10 h-10 image-fit zoom-in -ml-5">
-                        <img alt="Midone - HTML Admin Template" class="tooltip rounded-full" src="dist/images/preview-11.jpg" title="Uploaded at 2 August 2020">
+                        <img alt="{{config('settings.title')}}" class="tooltip rounded-full" src="dist/images/preview-11.jpg" title="Uploaded at 2 August 2020">
                       </div>
                     </div>
                   </td>
@@ -551,7 +551,7 @@
               <div class="intro-x">
                 <div class="box px-5 py-3 mb-3 flex items-center zoom-in">
                   <div class="w-10 h-10 flex-none image-fit rounded-full overflow-hidden">
-                    <img alt="Midone - HTML Admin Template" src="dist/images/profile-3.jpg">
+                    <img alt="{{config('settings.title')}}" src="dist/images/profile-3.jpg">
                   </div>
                   <div class="ml-4 mr-auto">
                     <div class="font-medium">Tom Cruise</div>
@@ -563,7 +563,7 @@
               <div class="intro-x">
                 <div class="box px-5 py-3 mb-3 flex items-center zoom-in">
                   <div class="w-10 h-10 flex-none image-fit rounded-full overflow-hidden">
-                    <img alt="Midone - HTML Admin Template" src="dist/images/profile-2.jpg">
+                    <img alt="{{config('settings.title')}}" src="dist/images/profile-2.jpg">
                   </div>
                   <div class="ml-4 mr-auto">
                     <div class="font-medium">Robert De Niro</div>
@@ -575,7 +575,7 @@
               <div class="intro-x">
                 <div class="box px-5 py-3 mb-3 flex items-center zoom-in">
                   <div class="w-10 h-10 flex-none image-fit rounded-full overflow-hidden">
-                    <img alt="Midone - HTML Admin Template" src="dist/images/profile-10.jpg">
+                    <img alt="{{config('settings.title')}}" src="dist/images/profile-10.jpg">
                   </div>
                   <div class="ml-4 mr-auto">
                     <div class="font-medium">Nicolas Cage</div>
@@ -587,7 +587,7 @@
               <div class="intro-x">
                 <div class="box px-5 py-3 mb-3 flex items-center zoom-in">
                   <div class="w-10 h-10 flex-none image-fit rounded-full overflow-hidden">
-                    <img alt="Midone - HTML Admin Template" src="dist/images/profile-10.jpg">
+                    <img alt="{{config('settings.title')}}" src="dist/images/profile-10.jpg">
                   </div>
                   <div class="ml-4 mr-auto">
                     <div class="font-medium">Johnny Depp</div>
@@ -599,7 +599,7 @@
               <div class="intro-x">
                 <div class="box px-5 py-3 mb-3 flex items-center zoom-in">
                   <div class="w-10 h-10 flex-none image-fit rounded-full overflow-hidden">
-                    <img alt="Midone - HTML Admin Template" src="dist/images/profile-10.jpg">
+                    <img alt="{{config('settings.title')}}" src="dist/images/profile-10.jpg">
                   </div>
                   <div class="ml-4 mr-auto">
                     <div class="font-medium">Morgan Freeman</div>
@@ -622,7 +622,7 @@
               <div class="intro-x relative flex items-center mb-3">
                 <div class="before:block before:absolute before:w-20 before:h-px before:bg-slate-200 before:dark:bg-darkmode-400 before:mt-5 before:ml-5">
                   <div class="w-10 h-10 flex-none image-fit rounded-full overflow-hidden">
-                    <img alt="Midone - HTML Admin Template" src="dist/images/profile-12.jpg">
+                    <img alt="{{config('settings.title')}}" src="dist/images/profile-12.jpg">
                   </div>
                 </div>
                 <div class="box px-5 py-3 ml-4 flex-1 zoom-in">
@@ -636,7 +636,7 @@
               <div class="intro-x relative flex items-center mb-3">
                 <div class="before:block before:absolute before:w-20 before:h-px before:bg-slate-200 before:dark:bg-darkmode-400 before:mt-5 before:ml-5">
                   <div class="w-10 h-10 flex-none image-fit rounded-full overflow-hidden">
-                    <img alt="Midone - HTML Admin Template" src="dist/images/profile-9.jpg">
+                    <img alt="{{config('settings.title')}}" src="dist/images/profile-9.jpg">
                   </div>
                 </div>
                 <div class="box px-5 py-3 ml-4 flex-1 zoom-in">
@@ -648,13 +648,13 @@
                     <div class="mt-1">Added 3 new photos</div>
                     <div class="flex mt-2">
                       <div class="tooltip w-8 h-8 image-fit mr-1 zoom-in" title="Sony Master Series A9G">
-                        <img alt="Midone - HTML Admin Template" class="rounded-md border border-white" src="dist/images/preview-11.jpg">
+                        <img alt="{{config('settings.title')}}" class="rounded-md border border-white" src="dist/images/preview-11.jpg">
                       </div>
                       <div class="tooltip w-8 h-8 image-fit mr-1 zoom-in" title="Dell XPS 13">
-                        <img alt="Midone - HTML Admin Template" class="rounded-md border border-white" src="dist/images/preview-7.jpg">
+                        <img alt="{{config('settings.title')}}" class="rounded-md border border-white" src="dist/images/preview-7.jpg">
                       </div>
                       <div class="tooltip w-8 h-8 image-fit mr-1 zoom-in" title="Sony Master Series A9G">
-                        <img alt="Midone - HTML Admin Template" class="rounded-md border border-white" src="dist/images/preview-4.jpg">
+                        <img alt="{{config('settings.title')}}" class="rounded-md border border-white" src="dist/images/preview-4.jpg">
                       </div>
                     </div>
                   </div>
@@ -664,7 +664,7 @@
               <div class="intro-x relative flex items-center mb-3">
                 <div class="before:block before:absolute before:w-20 before:h-px before:bg-slate-200 before:dark:bg-darkmode-400 before:mt-5 before:ml-5">
                   <div class="w-10 h-10 flex-none image-fit rounded-full overflow-hidden">
-                    <img alt="Midone - HTML Admin Template" src="dist/images/profile-6.jpg">
+                    <img alt="{{config('settings.title')}}" src="dist/images/profile-6.jpg">
                   </div>
                 </div>
                 <div class="box px-5 py-3 ml-4 flex-1 zoom-in">
@@ -678,7 +678,7 @@
               <div class="intro-x relative flex items-center mb-3">
                 <div class="before:block before:absolute before:w-20 before:h-px before:bg-slate-200 before:dark:bg-darkmode-400 before:mt-5 before:ml-5">
                   <div class="w-10 h-10 flex-none image-fit rounded-full overflow-hidden">
-                    <img alt="Midone - HTML Admin Template" src="dist/images/profile-10.jpg">
+                    <img alt="{{config('settings.title')}}" src="dist/images/profile-10.jpg">
                   </div>
                 </div>
                 <div class="box px-5 py-3 ml-4 flex-1 zoom-in">

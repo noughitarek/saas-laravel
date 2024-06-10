@@ -11,16 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('information', function (Blueprint $table) {
+        Schema::create('f_a_q_categories', function (Blueprint $table) {
             $table->id();
-            $table->string('text1')->nullable();
-            $table->string('text2')->nullable();
-            $table->string('icon')->nullable();
-            $table->string('change')->nullable();
-            $table->string('color')->nullable();
+            $table->string('title');
             $table->integer('width')->default(12);
             $table->integer('width_lg')->default(6);
-            $table->foreignId('investor_id')->nullable()->index();
             $table->timestamps();
         });
     }
@@ -30,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('information');
+        Schema::dropIfExists('f_a_q_categories');
     }
 };

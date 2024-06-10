@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ProfileUpdateRequest;
+use App\Http\Requests\InvestorsProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,7 +16,7 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
-        return view('dashboard.profile', [
+        return view('profile.edit', [
             'user' => $request->user(),
         ]);
     }
@@ -24,23 +24,9 @@ class ProfileController extends Controller
     /**
      * Update the user's profile information.
      */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
+    public function update(InvestorsProfileUpdateRequest $request): RedirectResponse
     {
         $request->user()->fill($request->validated());
-        if($request->hasFile('picture'))
-        {
-            $picture = $request->file('picture');
-            $filename = time().$this->generateRandomUniqueName(12). '.' .$picture->getClientOriginalExtension();
-            $picture->move(public_path('storage/pictures'), $filename);
-            $picture = 'storage/pictures/' . $filename;
-            $request->user()->picture = $picture;
-        }
-        else{
-            if($request->input('pictureValue') == 'null')
-            {
-                $request->user()->picture = null;
-            }
-        }
 
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
@@ -62,7 +48,7 @@ class ProfileController extends Controller
 
         $user = $request->user();
 
-        Auth::logout();
+        Auth::guard('investor')->logout();
 
         $user->delete();
 
@@ -70,14 +56,5 @@ class ProfileController extends Controller
         $request->session()->regenerateToken();
 
         return Redirect::to('/');
-    }
-
-    private function generateRandomUniqueName($length = 8) {
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $randomName = '';
-        for ($i = 0; $i < $length; $i++) {
-            $randomName .= $characters[rand(0, strlen($characters) - 1)];
-        }
-        return $randomName;
     }
 }
