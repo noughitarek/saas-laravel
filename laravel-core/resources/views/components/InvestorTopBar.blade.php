@@ -210,7 +210,7 @@
             <hr class="dropdown-divider border-white/[0.08]">
           </li>
           <li>
-          <form method="POST" action="{{ route('logout') }}">
+          <form method="POST" action="{{ route('investors.logout') }}">
             @csrf
 
             <button type="submit" class="dropdown-item hover:bg-white/5">
