@@ -1,7 +1,7 @@
-@extends('layouts.dashboard')
-@section('title', "Settings")
+@extends('layouts.investors')
+@section('title', "Profile")
 @section('content')
-<form action="{{route('profile.update')}}" method="POST" enctype="multipart/form-data">
+<form action="{{route('investors.profile.update')}}" method="POST" enctype="multipart/form-data">
   @csrf
   @method('patch')
   <div class="content content--top-nav">
@@ -14,11 +14,11 @@
         <div class="intro-y box mt-5">
           <div class="relative flex items-center p-5">
             <div class="w-12 h-12 image-fit">
-              <img alt="{{config('settings.title')}}" class="rounded-full" src="{{asset(config('settings.logo')??'assets/dashboard/images/profile-14.jpg')}}">
+              <img alt="{{Auth::guard('investor')->user()->name}}" class="rounded-full" src="{{asset(Auth::guard('investor')->user()->picture??'assets/dashboard/images/profile-14.jpg')}}">
             </div>
             <div class="ml-4 mr-auto">
-              <div class="font-medium text-base">{{config('settings.title')}}</div>
-              <div class="text-slate-500">{{Auth::user()->role}}</div>
+              <div class="font-medium text-base">{{Auth::guard('investor')->user()->name}}</div>
+              <div class="text-slate-500">{{Auth::guard('investor')->user()->role}}</div>
             </div>
             <div class="dropdown">
               <a class="dropdown-toggle w-5 h-5 block" href="javascript:;" aria-expanded="false" data-tw-toggle="dropdown">
@@ -63,10 +63,12 @@
             </div>
           </div>
           <div class="p-5 border-t border-slate-200/60 dark:border-darkmode-400">
-            <a class="flex items-center text-primary font-medium" href="{{route('settings')}}">
-              <i data-lucide="activity" class="w-4 h-4 mr-2"></i> General settings </a>
-            <a class="flex items-center mt-5" href="{{route('settings.help.categories')}}">
-              <i data-lucide="activity" class="w-4 h-4 mr-2"></i> Help management </a>
+            <a class="flex items-center text-primary font-medium" href="{{route('investors.profile.edit')}}">
+              <i data-lucide="activity" class="w-4 h-4 mr-2"></i> Personal Information </a>
+            <a class="flex items-center mt-5" href="{{route('investors.password.edit')}}">
+              <i data-lucide="lock" class="w-4 h-4 mr-2"></i> Change Password </a>
+            <a class="flex items-center mt-5" href="{{route('investors.style.edit')}}">
+              <i data-lucide="pencil" class="w-4 h-4 mr-2"></i> Styling </a>
           </div>
         </div>
       </div>
@@ -75,7 +77,7 @@
         <!-- BEGIN: Display Information -->
         <div class="intro-y box lg:mt-5">
           <div class="flex items-center p-5 border-b border-slate-200/60 dark:border-darkmode-400">
-            <h2 class="font-medium text-base mr-auto"> Website Information </h2>
+            <h2 class="font-medium text-base mr-auto"> Display Information </h2>
           </div>
           <div class="p-5">
             <div class="flex flex-col-reverse xl:flex-row flex-col">
@@ -83,8 +85,20 @@
                 <div class="grid grid-cols-12 gap-x-5">
                   <div class="col-span-12 2xl:col-span-6">
                     <div>
-                      <label for="update-profile-form-1" class="form-label">Title</label>
-                      <input id="update-profile-form-1" name="settings.title" type="text" class="form-control" placeholder="Title" value="{{config('settings.title')}}">
+                      <label for="update-profile-form-1" class="form-label">Display Name</label>
+                      <input id="update-profile-form-1" name="name" type="text" class="form-control" placeholder="Name" value="{{Auth::guard('investor')->user()->name}}">
+                    </div>
+                  </div>
+                  <div class="col-span-12 2xl:col-span-6">
+                    <div class="mt-3">
+                      <label for="update-profile-form-1" class="form-label">Role</label>
+                      <input id="update-profile-form-1" name="role" type="text" class="form-control" placeholder="Role" value="{{Auth::guard('investor')->user()->role}}">
+                    </div>
+                  </div>
+                  <div class="col-span-12">
+                    <div class="mt-3">
+                      <label for="update-profile-form-5" class="form-label">Description</label>
+                      <textarea id="update-profile-form-5" name="description" class="form-control" placeholder="Description">{{Auth::guard('investor')->user()->description}}</textarea>
                     </div>
                   </div>
                 </div>
@@ -93,14 +107,14 @@
               <div class="w-52 mx-auto xl:mr-0 xl:ml-6">
                 <div class="border-2 border-dashed shadow-sm border-slate-200/60 dark:border-darkmode-400 rounded-md p-5">
                   <div class="h-40 relative image-fit cursor-pointer zoom-in mx-auto">
-                    <img id="pictureView" class="rounded-md" alt="{{config('settings.title')}}" src="{{asset(config('settings.logo')??'assets/dashboard/images/profile-14.jpg')}}">
+                    <img id="pictureView" class="rounded-md" alt="{{Auth::guard('investor')->user()->name}}" src="{{asset(Auth::guard('investor')->user()->picture??'assets/dashboard/images/profile-14.jpg')}}">
                     <div title="Remove this profile photo?" id="removePicture" class="tooltip w-5 h-5 flex items-center justify-center absolute rounded-full text-white bg-danger right-0 top-0 -mr-2 -mt-2">
                       <i data-lucide="x" class="w-4 h-4"></i>
                     </div>
                   </div>
                   <div class="mx-auto cursor-pointer relative mt-5">
                     <button type="button" class="btn btn-primary w-full">Change Photo</button>
-                    <input id="picture" name="settings.logo" type="file" class="w-full h-full top-0 left-0 absolute opacity-0">
+                    <input id="picture" name="picture" type="file" class="w-full h-full top-0 left-0 absolute opacity-0">
                     <input type="hidden" id="pictureValue" name="pictureValue">
                   </div>
                 </div>
@@ -108,6 +122,39 @@
             </div>
           </div>
         </div>
+        <!-- END: Display Information -->
+        <!-- BEGIN: Personal Information -->
+        <div class="intro-y box mt-5">
+          <div class="flex items-center p-5 border-b border-slate-200/60 dark:border-darkmode-400">
+            <h2 class="font-medium text-base mr-auto"> Personal Information </h2>
+          </div>
+          <div class="p-5">
+            <div class="grid grid-cols-12 gap-x-5">
+              <div class="col-span-12 xl:col-span-6">
+                <div class="mt-3">
+                  <label for="update-profile-form-6" class="form-label">Email</label>
+                  <input id="update-profile-form-6" name="email" type="text" class="form-control" placeholder="Email" value="{{Auth::guard('investor')->user()->email}}">
+                </div>
+                <div class="mt-3">
+                  <label for="update-profile-form-11" class="form-label">Address</label>
+                  <input id="update-profile-form-11" name="address" type="text" class="form-control" placeholder="Address" value="{{Auth::guard('investor')->user()->address}}">
+                </div>
+              </div>
+              <div class="col-span-12 xl:col-span-6">
+                <div class="mt-3">
+                  <label for="update-profile-form-10" class="form-label">Phone Number</label>
+                  <input id="update-profile-form-10" name="phone" type="text" class="form-control" placeholder="Phone Number" value="{{Auth::guard('investor')->user()->phone}}">
+                </div>
+              </div>
+            </div>
+            <div class="flex justify-end mt-4">
+              <button type="submit" class="btn btn-primary w-20 mr-auto">Save</button>
+              <a href="" class="text-danger flex items-center">
+                <i data-lucide="trash-2" class="w-4 h-4 mr-1"></i> Delete Account </a>
+            </div>
+          </div>
+        </div>
+        <!-- END: Personal Information -->
       </div>
     </div>
   </div>

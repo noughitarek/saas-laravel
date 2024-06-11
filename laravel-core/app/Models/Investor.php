@@ -20,6 +20,16 @@ class Investor extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'description',
+        'phone',
+        'address',
+        'dark',
+        'primary_color',
+        'secondary_color',
+        'warning_color',
+        'danger_color',
+        'success_color'
     ];
 
     /**

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HelpController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ProfileController;
@@ -17,10 +18,30 @@ Route::prefix('admins')->group(function(){
         Route::post('login', [AuthenticatedSessionController::class, 'store']);
     });
 
-    Route::middleware('auth:web')->controller(MainController::class)->prefix('dashboard')->group(function () {
+    Route::middleware('auth:web')->controller(MainController::class)->group(function () {
         Route::get('/', 'dashboard')->name('dashboard.admins');
-        Route::get('/settings', 'settings')->name('settings');
-        Route::patch('/settings', 'update_settings');
+
+        Route::prefix('settings')->name("settings")->group(function () {
+            Route::get('', 'settings');
+            Route::patch('', 'update');
+
+            Route::prefix('help')->name(".help.")->controller(HelpController::class)->group(function () {
+                Route::get('categories', 'categories')->name('categories');
+                Route::get('categories/create', 'create_category')->name('create_category');
+                Route::post('categories/create', 'store_category');
+                Route::get('categories/{category}/edit', 'edit_category')->name('edit_category');
+                Route::put('categories/{category}/edit', 'update_category');
+                Route::delete('categories/{category}/delete', 'delete_category')->name('delete_category');
+
+                Route::get('faq/create', 'create_faq')->name('create_faq');
+                Route::post('faq/create', 'store_faq');
+                Route::get('faq/{faq}/edit', 'edit_faq')->name('edit_faq');
+                Route::put('faq/{faq}/edit', 'update_faq');
+                Route::delete('faq/{faq}/delete', 'delete_faq')->name('delete_faq');
+
+
+            });
+        });
 
         Route::get('help', 'help')->name('help.admins');
     });
@@ -49,6 +70,8 @@ Route::prefix('admins')->group(function(){
         Route::put('/{information}/edit', 'update');
         Route::delete('/{information}/delete', 'destroy')->name('informations.delete');
     });
+
+    
 
     Route::middleware('auth:web')->group(function () {
         Route::get('confirm-password', [ConfirmablePasswordController::class, 'show'])->name('password. ');

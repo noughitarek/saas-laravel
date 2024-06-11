@@ -1,15 +1,26 @@
 <?php
 
-namespace App\Http\Controllers\Admins;
+namespace App\Http\Controllers\Investors;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Validation\Rules\Password;
 
 class InvestorsPasswordController extends Controller
 {
+        /**
+     * Display the user's profile form.
+     */
+    public function edit(Request $request): View
+    {
+        return view('investors.change-password', [
+            'user' => Auth::guard('investor')->user(),
+        ]);
+    }
     /**
      * Update the user's password.
      */
@@ -20,7 +31,7 @@ class InvestorsPasswordController extends Controller
             'password' => ['required', Password::defaults(), 'confirmed'],
         ]);
 
-        $request->user()->update([
+        Auth::guard('investor')->user()->update([
             'password' => Hash::make($validated['password']),
         ]);
 

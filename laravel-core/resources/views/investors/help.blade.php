@@ -1,10 +1,10 @@
-@extends('layouts.dashboard')
-@section('title', "FAQ")
+@extends('layouts.investors')
+@section('title', "Help")
 @section('content')
 <div class="content content--top-nav">
     <div class="intro-y flex items-center mt-8">
         <h2 class="text-lg font-medium mr-auto">
-            FAQ
+            FAQ Layout
         </h2>
     </div>
     <div class="grid grid-cols-12 gap-6 mt-5">
@@ -17,7 +17,7 @@
                     </h2>
                 </div>
                 <div id="faq-accordion-{{$category->id}}" class="accordion p-5">
-                    @foreach($category->FAQ_admins() as $faq)
+                    @foreach($category->FAQ_investors() as $faq)
                     <div class="accordion-item">
                         <div id="faq-accordion-content-{{$faq->id}}" class="accordion-header">
                             <button class="accordion-button" type="button" data-tw-toggle="collapse" data-tw-target="#faq-accordion-collapse-{{$faq->id}}" aria-expanded="true" aria-controls="faq-accordion-collapse-{{$faq->id}}"> {{$faq->title}} </button>

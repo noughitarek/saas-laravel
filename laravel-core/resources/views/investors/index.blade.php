@@ -15,13 +15,14 @@
           </div>
           <div class="grid grid-cols-12 gap-6 mt-5">
             @foreach($informations as $information)
-            <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
+            @if($information->icon != null)
+            <div class="col-span-12 col-span-{{$information->width}} lg:col-span-{{$information->width_lg}} intro-y">
               <div class="report-box zoom-in">
                 <div class="box p-5">
                   <div class="flex">
                     <i data-lucide="{{$information->icon}}" class="report-box__icon text-primary"></i>
                     <div class="ml-auto">
-                      <div class="report-box__indicator bg-success tooltip cursor-pointer"> {{$information->change}} <i data-lucide="chevron-{{$information->color=='success'?'up':($information->color=='danger'?'down':'right')}}" class="w-4 h-4 ml-0.5"></i>
+                      <div class="report-box__indicator bg-{{$information->color}} tooltip cursor-pointer"> {{$information->change}} <i data-lucide="chevron-{{$information->color=='success'?'up':($information->color=='danger'?'down':'right')}}" class="w-4 h-4 ml-0.5"></i>
                       </div>
                     </div>
                   </div>
@@ -30,6 +31,15 @@
                 </div>
               </div>
             </div>
+            @else
+            <div class="col-span-12 col-span-{{$information->width}} lg:col-span-{{$information->width_lg}} intro-y">
+              <div class="report-box zoom-in">
+                <div class="box p-5">
+                 <div class="text-3xl font-medium leading-8">{{$information->text1}} {{$information->text2}}</div>
+                </div>
+              </div>
+            </div>
+            @endif
             @endforeach
           </div>
         </div>

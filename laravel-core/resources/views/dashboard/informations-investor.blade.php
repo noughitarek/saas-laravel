@@ -46,6 +46,7 @@
           </div>-->
           <div class="grid grid-cols-12 gap-6 mt-5">
             @foreach($informations as $information)
+            @if($information->icon != null)
             <div class="col-span-12 col-span-{{$information->width}} lg:col-span-{{$information->width_lg}} intro-y">
               <div class="report-box zoom-in">
                 <div class="box p-5">
@@ -67,6 +68,20 @@
                 </div>
               </div>
             </div>
+            @else
+            <div class="col-span-12 col-span-{{$information->width}} lg:col-span-{{$information->width_lg}} intro-y">
+              <div class="report-box zoom-in">
+                <div class="box p-5">
+                  <form method="post" action="{{route('informations.delete', $information->id)}}" class="mb-2">
+                  @csrf
+                  @method('delete')
+                  <button class="btn btn-danger">X</button>
+                  </form>
+                 <div class="text-3xl font-medium leading-8">{{$information->text1}} {{$information->text2}}</div>
+                </div>
+              </div>
+            </div>
+            @endif
             @endforeach
           </div>
         </div>

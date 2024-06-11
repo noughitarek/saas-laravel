@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admins;
+namespace App\Http\Controllers\Investors;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;

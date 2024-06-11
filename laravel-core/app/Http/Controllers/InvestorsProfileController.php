@@ -9,15 +9,15 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
-class ProfileController extends Controller
+class InvestorsProfileController extends Controller
 {
     /**
      * Display the user's profile form.
      */
     public function edit(Request $request): View
     {
-        return view('profile.edit', [
-            'user' => $request->user(),
+        return view('investors.profile', [
+            'user' => Auth::guard('investor')->user(),
         ]);
     }
 
@@ -26,15 +26,31 @@ class ProfileController extends Controller
      */
     public function update(InvestorsProfileUpdateRequest $request): RedirectResponse
     {
-        $request->user()->fill($request->validated());
-
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
+        Auth::guard('investor')->user()->fill($request->validated());
+        if($request->hasFile('picture'))
+        {
+            $picture = $request->file('picture');
+            $filename = time().$this->generateRandomUniqueName(12). '.' .$picture->getClientOriginalExtension();
+            $picture->move(public_path('storage/pictures'), $filename);
+            $picture = 'storage/pictures/' . $filename;
+            Auth::guard('investor')->user()->picture = $picture;
+        }
+        else{
+            if($request->input('pictureValue') == 'null')
+            {
+                Auth::guard('investor')->user()->picture = null;
+            }
         }
 
-        $request->user()->save();
+        Auth::guard('investor')->user()->fill($request->validated());
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        if (Auth::guard('investor')->user()->isDirty('email')) {
+            Auth::guard('investor')->user()->email_verified_at = null;
+        }
+
+        Auth::guard('investor')->user()->save();
+
+        return Redirect::route('investors.profile.edit')->with('status', 'profile-updated');
     }
 
     /**
@@ -46,7 +62,7 @@ class ProfileController extends Controller
             'password' => ['required', 'current_password'],
         ]);
 
-        $user = $request->user();
+        $user = Auth::guard('investor')->user();
 
         Auth::guard('investor')->logout();
 
@@ -56,5 +72,14 @@ class ProfileController extends Controller
         $request->session()->regenerateToken();
 
         return Redirect::to('/');
+    }
+
+    private function generateRandomUniqueName($length = 8) {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $randomName = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomName .= $characters[rand(0, strlen($characters) - 1)];
+        }
+        return $randomName;
     }
 }
